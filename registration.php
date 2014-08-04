@@ -1,16 +1,11 @@
 <?php
 // define variables and set to empty values
-$name = $sex = $dob = $contact = $email = $courseinbest = $yearofpassing = $profession = $organisation = $permanentstreet1 = $permanentstreet2 = $permanentcity = $permanentpincode = $permanentcountry = $blood = "";
+$name = $sex = $dob = $contact = $email = $courseinbest = $yearofpassing = $profession = $organisation = $permanentstreet1 = $permanentstreet2 = $permanentstate = $permanentcity = $permanentpincode = $permanentcountry = $blood = "";
 
 // Create connection
-$con=mysqli_connect("localhost","root","kolli","bestalumni");
+$link=mysqli_connect("localhost","username","password","bestalumni") or die("Error " . mysqli_error($link)); 
 
-// Check connection
-if(mysqli_connect_errno()) {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
 
-if ($name !=null & $sex!=null & $dob!=null & $contact!=null & $email!=null & $courseinbest!=null & $yearofpassing!=null) {
   $name = $_POST["name"];
   $sex =  $_POST["sex"];
   $dob =  $_POST["dob"];
@@ -26,12 +21,17 @@ if ($name !=null & $sex!=null & $dob!=null & $contact!=null & $email!=null & $co
   $permanentpincode = $_POST["permanentpincode"];
   $permanentcountry = $_POST["permanentcountry"];
   $blood = $_POST["blood"];
-  mysqli_select_db("bestalumni") or die(mysqli_error()); 
-  $query="INSERT INTO `registration`(`name`, `sex`, `dob`, `contact`, `email`, `courseinbest`, 
+ 
+  $query="INSERT INTO registration (`name`, `sex`, `dob`, `contact`, `email`, `courseinbest`, 
   `yearofpassing`, `profession`, `organisation`, `permanentstreet1`, `permanentstreet2`, `permanentcity`, 
   `permanentstate`, `permanentpincode`, `permanentcountry`, `blood`) 
-  VALUES (`$name`, `$sex`, `$dob`, `$contact`, `$email`, `$courseinbest`, `$yearofpassing`, `$profession`, 
-  `$organisation`, `$permanentstreet1`, `$permanentstreet2`, `$permanentcity`, `$permanentstate`, `$permanentpincode`, `$permanentcountry`, `$blood`)";
+  VALUES ('$name', '$sex', '$dob', '$contact', '$email', '$courseinbest', '$yearofpassing', '$profession', 
+  '$organisation', '$permanentstreet1', '$permanentstreet2', '$permanentcity', '$permanentstate', '$permanentpincode', '$permanentcountry', '$blood')";
+  if (!mysqli_query($link,$query)) {
+  die('Error: ' . mysqli_error($link));
 }
+echo "1 record added";
+
+
 
 ?>
