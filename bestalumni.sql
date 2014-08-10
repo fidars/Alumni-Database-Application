@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `registration` (
   `blood` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `registration` (`name`, `sex`, `dob`, `contact`, `email`, `courseinbest`, `yearofpassing`, `profession`, `organisation`, `permanentstreet1`, `permanentstreet2`, `permanentcity`, `permanentstate`, `permanentpincode`, `permanentcountry`, `blood`);
+
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
