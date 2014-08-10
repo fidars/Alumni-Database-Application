@@ -5,8 +5,7 @@ $name = $sex = $dob = $contact = $email = $courseinbest = $yearofpassing = $prof
 // Create connection
 $link=mysqli_connect("localhost","username","password","bestalumni") or die("Error " . mysqli_error($link)); 
 
-
-  $name = $_POST["name"];
+ $name = $_POST["name"];
   $sex =  $_POST["sex"];
   $dob =  $_POST["dob"];
   $contact = $_POST["contact"];
@@ -31,7 +30,6 @@ $link=mysqli_connect("localhost","username","password","bestalumni") or die("Err
   die('Error: ' . mysqli_error($link));
 }
 echo "1 record added";
-
 
 
 ?>
